@@ -4,7 +4,7 @@ import TextForm from "./component/TextForm";
 import Alerts from './component/Alerts';
 import About from './component/About';
 import { useState } from 'react';
- import {BrowserRouter as Router,Link,Switch,Route} from 'react-router-dom';
+ import {HashRouter as Router,Link,Switch,Route} from 'react-router-dom';
 function App() {
   const [mode, setMode] = useState('light')
   const [alert, setAlert] = useState(null)
