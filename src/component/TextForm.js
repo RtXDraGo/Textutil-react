@@ -20,10 +20,7 @@ export default function TextForm(props) {
     }
 
     const Copy = () => {
-        var text = document.getElementById("myBox")
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        document.getSelection.removeAllRanges();
+        navigator.clipboard.writeText();
         props.alert("Text is copied","Success")
     }
     const Spaceremove = () => {
@@ -56,7 +53,7 @@ export default function TextForm(props) {
             </div>
             <div className="container my-3" style={{color:props.mode==='dark'?'white':'black'}}>
                 <h1>Tour paragraph Analyzer</h1>
-                <p>Your paragraph has {data.length} charecters and {data.split(" ").filter(function(n){return n!=''}).length} words</p>
+                <p>Your paragraph has {data.length} charecters and {data.split(/\s+/).filter(function(n){return n!=''}).length} words</p>
                 <p>Total time to read the paragraph {0.008 * data.split(" ").filter(function(n){return n!=''}).length}</p>
                 <h1>Your text preview</h1>
                 <p >{data.length > 0 ? data : "Enter Something to preview"}</p>
