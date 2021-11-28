@@ -2,8 +2,9 @@ import './App.css';
 import Navbar from "./component/Navbar";
 import TextForm from "./component/TextForm";
 import Alerts from './component/Alerts';
+import About from './component/About';
 import { useState } from 'react';
-// import {BrowserRouter as Router,Link,Switch,Route} from 'react-router-dom';
+ import {BrowserRouter as Router,Link,Switch,Route} from 'react-router-dom';
 function App() {
   const [mode, setMode] = useState('light')
   const [alert, setAlert] = useState(null)
@@ -12,9 +13,9 @@ function App() {
       title: msg,
       data: cont
     })
-    setTimeout(() => {
-      setAlert(null);
-    }, 2000)
+     setTimeout(() => {
+       setAlert(null);
+     }, 2000)
   }
   const Toggle = () => {
     if (mode == 'dark') {
@@ -32,20 +33,20 @@ function App() {
   }
   return (
     <>
-    {/* <Router> */}
+     <Router>
       <Navbar title="TextUTILS" mode={mode} toggle={Toggle} />
       <Alerts alert={alert} />
       <div className="container">
-        {/* <Switch> */}
-          {/* <Route exact path="/About">
-            <About />
-          </Route> */}
-          {/* <Route exact path="/"> */}
+         <Switch> 
+           <Route exact path="/About">
+            <About mode={mode} toggle={Toggle}/>
+          </Route> 
+           <Route exact path="/"> 
           <TextForm head="Enter your text to Analyze" mode={mode} alert={showAlert}/>
-          {/* </Route>
-        </Switch>  */}
+           </Route>
+        </Switch>  
       </div>
-    {/* </Router> */}
+     </Router> 
     </>
   );
 }
